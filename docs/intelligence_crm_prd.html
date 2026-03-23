@@ -1,0 +1,200 @@
+# Intelligence CRM
+
+## Product Overview
+
+**The Pitch:** An action-oriented CRM interface that transforms raw prospect data into immediate, actionable talk tracks. It eliminates pre-call research bloat by surfacing "Why NOW" buying signals and automated deal dossiers.
+
+**For:** Enterprise Account Executives who need high-signal, low-noise intelligence minutes before a critical discovery call.
+
+**Device:** Desktop
+
+**Design Direction:** Crisp light mode with rigid structural borders, generous negative space, and a refined palette of slate and forest green. Utilitarian, flat, and highly legible.
+
+**Inspired by:** Linear, Bloomberg Terminal (if modernized for SaaS), Attio.
+
+---
+
+## Screens
+
+- **Dashboard (Pipeline Pulse):** High-level view of active deals sorted by intelligence score and recent buying signals.
+- **Deal-Ready Dossier:** The master prep sheet; consolidates firmographics, buying triggers, and the AI-recommended talk track.
+- **Decision Maker Map:** Interactive organizational chart mapping stakeholder influence and relationship strength.
+- **Intelligence Feed:** Real-time stream of company news, hiring shifts, and tech stack changes.
+
+---
+
+## Key Flows
+
+**Pre-Call Prep:** Account Executive needs an immediate angle for an upcoming call.
+
+1. User is on **Dashboard** -> sees "Acme Corp" highlighted with a "High Intent" badge.
+2. User clicks "Acme Corp" row -> opens **Deal-Ready Dossier**.
+3. User reads the "Why NOW" section and copies the exact "EVR-recommended talk track" to their clipboard.
+
+---
+
+<details>
+<summary>Design System</summary>
+
+## Color Palette
+
+- **Primary:** `#14532D` (Forest Green) - Buttons, active states, key data visualizations
+- **Background:** `#F8FAFC` (Slate 50) - Page background, creates separation for white cards
+- **Surface:** `#FFFFFF` (White) - Main content cards, dossiers
+- **Text:** `#0F172A` (Slate 900) - Primary body text, headings
+- **Muted:** `#64748B` (Slate 500) - Secondary text, borders, inactive tabs
+- **Accent:** `#22C55E` (Emerald 500) - Positive buying signals, success indicators
+- **Alert:** `#B91C1C` (Red 700) - Risk factors, stalled deals
+
+## Typography
+
+Distinctive, hyper-legible sans-serifs optimized for dense data reading.
+
+- **Headings:** Instrument Sans, 600, 24-32px, tracking -0.02em
+- **Body:** Geist, 400, 14px, 1.5 line height
+- **Small text:** Geist, 500, 12px, uppercase tracking 0.05em
+- **Data/Tags:** JetBrains Mono, 400, 11px
+- **Buttons:** Instrument Sans, 500, 13px
+
+**Style notes:** Utilitarian and flat. **Zero shadows**. Depth is created purely through 1px solid borders (`#E2E8F0`) and strict grid alignment. Sharp corners (`2px` border-radius) emphasize precision and structure. Generous padding (`24px` to `32px`) inside cards to let data breathe.
+
+## Design Tokens
+
+```css
+:root {
+  --color-primary: #14532D;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text: #0F172A;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+  --font-heading: 'Instrument Sans', sans-serif;
+  --font-body: 'Geist', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 2px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+```
+
+</details>
+
+---
+
+<details>
+<summary>Screen Specifications</summary>
+
+### Dashboard (Pipeline Pulse)
+
+**Purpose:** Surface the hottest deals requiring immediate action based on new intelligence.
+
+**Layout:** Left sidebar navigation (`240px`), main content area with top KPI metrics, followed by a dense data table.
+
+**Key Elements:**
+- **Signal Metrics:** 3 grid cards at the top. Values in Forest Green. E.g., `12 New Triggers`.
+- **Pipeline Table:** Row-based layout. Columns: Account, Deal Size, Intelligence Score, Latest Signal.
+- **Intelligence Score Badge:** Monospace font, color-coded (`>=80` green, `<80` slate).
+
+**States:**
+- **Empty:** "No active signals. Adjust your target account filters."
+- **Loading:** Skeleton rows with a fast-paced linear gradient shimmer.
+- **Error:** Red alert banner replacing table body: "Failed to sync intelligence feed."
+
+**Components:**
+- **Score Badge:** `28px x 24px`, `#F0FDF4` bg, `#166534` text, `1px solid #BBF7D0`.
+
+**Interactions:**
+- **Hover row:** Row background changes to `#F1F5F9`, cursor pointer.
+- **Click row:** Transitions to Deal-Ready Dossier.
+
+**Responsive:**
+- **Desktop:** Full width table, fixed sidebar.
+
+### Deal-Ready Dossier
+
+**Purpose:** The single source of truth for an upcoming meeting.
+
+**Layout:** 3-column masonry. Left: Firmographics & News (25%). Center: The "Why NOW" & Talk Track (50%). Right: Stakeholder Map (25%).
+
+**Key Elements:**
+- **"Why NOW" Card:** Prominent center card. Forest green top border (`4px`). Bulleted list of buying triggers.
+- **EVR Talk Track:** Highlighted text block with a "Copy to Clipboard" primary action button.
+- **Stakeholder Mini-Map:** Stacked list of contacts with colored connection dots.
+
+**States:**
+- **Empty/Insufficient Data:** "Gathering intelligence... check back in 2 hours."
+- **Loading:** Pulse animation on the center card text blocks.
+
+**Components:**
+- **Copy Button:** `120px x 32px`, `#14532D` bg, `#FFFFFF` text, `2px` radius. Hover: `#166534`.
+
+**Interactions:**
+- **Click "Copy":** Button text changes to "Copied!", icon changes to checkmark, 2-second timeout.
+
+**Responsive:**
+- **Desktop:** 3-column layout (`25% / 50% / 25%`).
+
+### Decision Maker Map
+
+**Purpose:** Visualize buying committees and identify blockers.
+
+**Layout:** Full-width canvas with a node-based graph interface. Left-side filter panel.
+
+**Key Elements:**
+- **Contact Nodes:** Rectangular cards (`180px x 64px`), white bg, slate border. Name, title, and relationship score.
+- **Edges:** 1px solid SVG lines connecting nodes. Green for strong ties, dashed red for friction.
+- **Sidebar Details:** Sliding panel showing contact history when a node is clicked.
+
+**States:**
+- **Empty:** "No contacts mapped. Import from Salesforce."
+
+**Components:**
+- **Node Card:** `180px` width, `1px solid #E2E8F0`, left border colored by sentiment (Green/Yellow/Red).
+
+**Interactions:**
+- **Click Node:** Opens right sidebar with contact details, node border turns Forest Green.
+
+**Responsive:**
+- **Desktop:** Interactive canvas with pan/zoom.
+
+### Intelligence Feed
+
+**Purpose:** Chronological log of all signals across all tracked accounts.
+
+**Layout:** Single centered column (`640px` max-width) to mimic a high-focus reading experience.
+
+**Key Elements:**
+- **Date Dividers:** Small text, sticky positioning.
+- **Signal Event:** Card with a left-aligned icon, timestamp, account name, and 2-line summary.
+- **Action Button:** Quick inline action per event (e.g., "Draft Email").
+
+**States:**
+- **Loading:** Infinite scroll loader at the bottom.
+
+**Components:**
+- **Event Card:** `padding 16px`, `border-bottom 1px solid #E2E8F0`, white bg.
+
+**Interactions:**
+- **Hover Event:** Action button appears on the right edge.
+
+**Responsive:**
+- **Desktop:** Centered column, plenty of negative space.
+
+</details>
+
+---
+
+<details>
+<summary>Build Guide</summary>
+
+**Stack:** HTML + Tailwind CSS v3
+
+**Build Order:**
+1. **Deal-Ready Dossier** - Establishes the core layout paradigm, strict borders, typography, and card structure. The heart of the app.
+2. **Dashboard** - Reuses cards and typography from the Dossier, establishes the navigation sidebar and data tables.
+3. **Intelligence Feed** - Builds out the list patterns and timeline components.
+4. **Decision Maker Map** - Most technically complex (requires canvas/SVG positioning), tackled last once the surrounding UI is solid.
+
+</details>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emerald Intelligence - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .persona-card:hover .check-indicator { border-color: #14532D; }
+        .active-persona { border-color: #14532D; background-color: rgba(220, 252, 231, 0.2); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#FFFFFF",
+                        "on-error-container": "#7F1D1D",
+                        "on-primary": "#FFFFFF",
+                        "on-secondary-fixed-variant": "#334155",
+                        "secondary-fixed": "#F1F5F9",
+                        "surface-container": "#F1F5F9",
+                        "surface": "#FFFFFF",
+                        "on-secondary-container": "#0F172A",
+                        "on-background": "#0F172A",
+                        "secondary-container": "#F1F5F9",
+                        "on-tertiary": "#FFFFFF",
+                        "on-tertiary-container": "#0C4A6E",
+                        "secondary-fixed-dim": "#E2E8F0",
+                        "inverse-on-surface": "#F8FAFC",
+                        "primary-fixed-dim": "#BBF7D0",
+                        "inverse-primary": "#22C55E",
+                        "on-surface": "#0F172A",
+                        "on-secondary": "#FFFFFF",
+                        "tertiary-fixed": "#E0F2FE",
+                        "primary": "#14532D",
+                        "on-tertiary-fixed": "#0C4A6E",
+                        "outline": "#E2E8F0",
+                        "surface-container-high": "#E2E8F0",
+                        "surface-container-lowest": "#FFFFFF",
+                        "on-secondary-fixed": "#0F172A",
+                        "tertiary": "#0369A1",
+                        "primary-fixed": "#DCFCE7",
+                        "tertiary-fixed-dim": "#BAE6FD",
+                        "on-primary-fixed": "#14532D",
+                        "primary-container": "#DCFCE7",
+                        "tertiary-container": "#E0F2FE",
+                        "secondary": "#334155",
+                        "surface-container-highest": "#CBD5E1",
+                        "error-container": "#FEE2E2",
+                        "surface-tint": "#14532D",
+                        "surface-container-low": "#F8FAFC",
+                        "error": "#B91C1C",
+                        "on-primary-fixed-variant": "#166534",
+                        "on-surface-variant": "#64748B",
+                        "on-error": "#FFFFFF",
+                        "outline-variant": "#CBD5E1",
+                        "surface-dim": "#F1F5F9",
+                        "background": "#F8FAFC",
+                        "surface-variant": "#F1F5F9",
+                        "on-tertiary-fixed-variant": "#0369A1",
+                        "inverse-surface": "#1E293B",
+                        "on-primary-container": "#14532D"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-slate-950 flex justify-between items-center w-full px-8 h-16 border-b-0">
+<div class="flex items-center gap-2">
+<span class="text-emerald-900 dark:text-emerald-50 font-black tracking-tighter text-2xl">Emerald Intelligence</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1 pt-16">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col pt-20 border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 w-72 z-40">
+<div class="px-6 mb-8">
+<p class="text-xs font-bold uppercase tracking-widest text-emerald-800 dark:text-emerald-400 mb-1">Onboarding</p>
+<p class="text-sm font-medium text-slate-500">Step 2 of 4</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 font-medium py-4 px-6 hover:text-emerald-700 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="electric_bolt">electric_bolt</span>
+<span class="text-xs font-bold uppercase tracking-widest">Product Context</span>
+</a>
+<a class="flex items-center gap-3 text-emerald-900 dark:text-emerald-50 font-extrabold border-r-4 border-emerald-800 py-4 px-6 bg-white dark:bg-slate-800 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-xs font-bold uppercase tracking-widest">Target Personas</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 font-medium py-4 px-6 hover:text-emerald-700 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="radar">radar</span>
+<span class="text-xs font-bold uppercase tracking-widest">ICP Definition</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 font-medium py-4 px-6 hover:text-emerald-700 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="ads_click">ads_click</span>
+<span class="text-xs font-bold uppercase tracking-widest">Growth Goals</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 font-medium py-4 px-6 hover:text-emerald-700 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="text-xs font-bold uppercase tracking-widest">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 flex-1 p-12 bg-surface-container-low min-h-screen">
+<div class="max-w-5xl mx-auto">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-background mb-4">Who do you sell to?</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                        Emerald Intelligence optimizes your outreach by mapping your product value to specific stakeholders in the EV infrastructure ecosystem. Select all that apply.
+                    </p>
+</header>
+<!-- Persona Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+<!-- Procurement Managers -->
+<label class="persona-card cursor-pointer group relative bg-white border-2 border-outline rounded-xl p-6 transition-all duration-300 hover:border-emerald-200 hover:shadow-md">
+<input class="hidden peer" name="persona" type="checkbox" value="procurement"/>
+<div class="peer-checked:bg-primary/5 peer-checked:border-primary absolute inset-0 rounded-xl pointer-events-none border-2 border-transparent transition-colors"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-emerald-50 text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</div>
+<div class="check-indicator w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-[12px] text-white hidden peer-checked:block" data-icon="check" data-weight="fill">check</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Procurement Managers</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">CPOs and hardware leads managing vendor selection for charging stations and grid hardware.</p>
+</label>
+<!-- Site Developers -->
+<label class="persona-card cursor-pointer group relative bg-white border-2 border-outline rounded-xl p-6 transition-all duration-300 hover:border-emerald-200 hover:shadow-md">
+<input checked="" class="hidden peer" name="persona" type="checkbox" value="developers"/>
+<div class="peer-checked:bg-primary/5 peer-checked:border-primary absolute inset-0 rounded-xl pointer-events-none border-2 border-transparent transition-colors"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-emerald-50 text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="location_city">location_city</span>
+</div>
+<div class="check-indicator w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-[12px] text-white hidden peer-checked:block" data-icon="check" data-weight="fill">check</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Site Developers</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Leads for NEVI-funded projects, corridor buildouts, and commercial real estate electrification.</p>
+</label>
+<!-- Fleet Operations -->
+<label class="persona-card cursor-pointer group relative bg-white border-2 border-outline rounded-xl p-6 transition-all duration-300 hover:border-emerald-200 hover:shadow-md">
+<input class="hidden peer" name="persona" type="checkbox" value="fleet"/>
+<div class="peer-checked:bg-primary/5 peer-checked:border-primary absolute inset-0 rounded-xl pointer-events-none border-2 border-transparent transition-colors"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-emerald-50 text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="check-indicator w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-[12px] text-white hidden peer-checked:block" data-icon="check" data-weight="fill">check</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Fleet Operations</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Logistics managers transitioning medium and heavy-duty vehicles to electric power systems.</p>
+</label>
+<!-- Sustainability Officers -->
+<label class="persona-card cursor-pointer group relative bg-white border-2 border-outline rounded-xl p-6 transition-all duration-300 hover:border-emerald-200 hover:shadow-md">
+<input class="hidden peer" name="persona" type="checkbox" value="sustainability"/>
+<div class="peer-checked:bg-primary/5 peer-checked:border-primary absolute inset-0 rounded-xl pointer-events-none border-2 border-transparent transition-colors"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-emerald-50 text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+</div>
+<div class="check-indicator w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-[12px] text-white hidden peer-checked:block" data-icon="check" data-weight="fill">check</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Sustainability Officers</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">ESG executives focused on Scope 2 and 3 emissions, carbon tracking, and compliance.</p>
+</label>
+<!-- Capital Partners -->
+<label class="persona-card cursor-pointer group relative bg-white border-2 border-outline rounded-xl p-6 transition-all duration-300 hover:border-emerald-200 hover:shadow-md">
+<input class="hidden peer" name="persona" type="checkbox" value="capital"/>
+<div class="peer-checked:bg-primary/5 peer-checked:border-primary absolute inset-0 rounded-xl pointer-events-none border-2 border-transparent transition-colors"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-emerald-50 text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div class="check-indicator w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary">
+<span class="material-symbols-outlined text-[12px] text-white hidden peer-checked:block" data-icon="check" data-weight="fill">check</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-2">Capital Partners</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Project finance firms and lenders providing the debt/equity for large scale infrastructure.</p>
+</label>
+<!-- Add New -->
+<button class="border-2 border-dashed border-outline rounded-xl p-6 flex flex-col items-center justify-center text-slate-400 hover:border-emerald-300 hover:text-emerald-700 hover:bg-emerald-50 transition-all duration-200">
+<span class="material-symbols-outlined text-3xl mb-2" data-icon="add_circle">add_circle</span>
+<span class="font-bold text-xs uppercase tracking-widest">Add Custom Persona</span>
+</button>
+</div>
+<!-- Pro Tip Section -->
+<div class="bg-secondary-container rounded-xl p-8 mb-12 flex items-start gap-6 relative overflow-hidden">
+<span class="material-symbols-outlined text-[120px] absolute -right-4 -bottom-4 text-emerald-900/5 rotate-12" data-icon="lightbulb">lightbulb</span>
+<div class="p-3 bg-white text-primary rounded-lg shadow-sm shrink-0">
+<span class="material-symbols-outlined" data-icon="tips_and_updates">tips_and_updates</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-emerald-800 mb-2">Intelligence Pro Tip</p>
+<h4 class="text-lg font-bold text-on-surface mb-2">Multi-Stakeholder Mapping</h4>
+<p class="text-sm text-on-surface-variant max-w-xl leading-relaxed">
+                            Infrastructure deals often require buy-in from multiple personas. Emerald's AI-driven intelligence engine can sequence multi-channel outreach to hit both procurement and finance teams simultaneously to accelerate deal cycles.
+                        </p>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex justify-between items-center pt-8 border-t border-outline">
+<button class="flex items-center gap-2 px-6 py-3 font-bold text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                        Back
+                    </button>
+<button class="px-8 py-3 bg-primary text-white font-bold rounded-lg shadow-lg shadow-emerald-900/10 hover:bg-emerald-800 transition-all active:scale-95 flex items-center gap-3">
+                        Continue to ICP Definition
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

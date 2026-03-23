@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings &amp; Integrations | VoltPulse CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#F8FAFC",
+              "surface-bright": "#FFFFFF",
+              "error-container": "#FEE2E2",
+              "on-secondary": "#FFFFFF",
+              "surface-container-highest": "#CBD5E1",
+              "surface-container-low": "#F8FAFC",
+              "on-secondary-fixed": "#0F172A",
+              "outline-variant": "#CBD5E1",
+              "background": "#F8FAFC",
+              "on-primary": "#FFFFFF",
+              "on-surface": "#0F172A",
+              "surface-container-lowest": "#FFFFFF",
+              "primary": "#14532D",
+              "inverse-primary": "#22C55E",
+              "tertiary-fixed": "#E0F2FE",
+              "secondary-fixed": "#F1F5F9",
+              "surface-dim": "#F1F5F9",
+              "on-primary-fixed": "#14532D",
+              "on-surface-variant": "#64748B",
+              "surface": "#FFFFFF",
+              "surface-tint": "#14532D",
+              "primary-fixed-dim": "#BBF7D0",
+              "inverse-surface": "#1E293B",
+              "surface-container-high": "#E2E8F0",
+              "on-error-container": "#7F1D1D",
+              "on-secondary-fixed-variant": "#334155",
+              "tertiary-fixed-dim": "#BAE6FD",
+              "primary-container": "#DCFCE7",
+              "on-error": "#FFFFFF",
+              "on-tertiary": "#FFFFFF",
+              "tertiary": "#0369A1",
+              "tertiary-container": "#E0F2FE",
+              "on-tertiary-fixed": "#0C4A6E",
+              "surface-variant": "#F1F5F9",
+              "outline": "#E2E8F0",
+              "on-primary-fixed-variant": "#166534",
+              "secondary-container": "#F1F5F9",
+              "secondary": "#334155",
+              "on-tertiary-fixed-variant": "#0369A1",
+              "on-secondary-container": "#0F172A",
+              "secondary-fixed-dim": "#E2E8F0",
+              "error": "#B91C1C",
+              "primary-fixed": "#DCFCE7",
+              "surface-container": "#F1F5F9",
+              "on-tertiary-container": "#0C4A6E",
+              "on-primary-container": "#14532D",
+              "on-background": "#0F172A"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 w-64">
+<div class="p-6">
+<h1 class="text-xl font-black text-emerald-950 dark:text-emerald-100 uppercase tracking-tighter">Intelligence CRM</h1>
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-900/60 dark:text-emerald-400/60 mt-1">EV Charging Division</p>
+</div>
+<nav class="flex-1 mt-4">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Dossier</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Decision Map</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Intelligence</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Accounts</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Deals</span>
+</a>
+<!-- Active State: Integrations -->
+<a class="flex items-center gap-3 bg-emerald-900 text-white rounded-none px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Integrations</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 px-2">
+<div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-900 font-bold text-xs">JD</div>
+<div class="overflow-hidden">
+<p class="text-[10px] font-bold text-slate-900 dark:text-white truncate">John Doe</p>
+<p class="text-[9px] text-slate-500 truncate">Admin Access</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex justify-between items-center w-full px-6 h-16 sticky top-0 z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tight text-emerald-900 dark:text-emerald-50">VoltPulse CRM</span>
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-sans text-sm font-medium" href="#">System Health</a>
+<a class="text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-700 font-semibold font-sans text-sm font-medium" href="#">Settings</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-sans text-sm font-medium" href="#">Support</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer" data-icon="settings">settings</span>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-slate-200" data-alt="portrait of a professional man in his 40s with a friendly expression and short dark hair in a corporate setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI4uHtIQBgvRmNY0SaIyyRsXrgPs2uSpiwq1DOfptLEqBe0DhsxlbYjAYAUDGzsHUk7Z7dCzay4h7XjPYfuoGmuZ6oqzhfljE01atzrXViAiLTI1kN7gL1scS4TUGJRy2RW9vqJF55JBP0Gxz8av6nwQd64IlEWY1lnylBV5vVlVBlvAHcwFEHhF6uGg91fpoWYjtPast4wbPVg3mYaUEECx_uyHofGBwtJkCdfjvObO8ltQ7vhtwikIKWy8EipzvoRDL594B-O9w"/>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-8 max-w-7xl mx-auto space-y-12">
+<!-- Page Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<h2 class="text-3xl font-black text-slate-900 tracking-tight">Configuration &amp; Nodes</h2>
+<p class="text-slate-500 font-medium">Manage cross-platform data flow and institutional preferences.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-white border border-slate-200 text-slate-700 text-sm font-bold uppercase tracking-wider hover:bg-slate-50 transition-colors">Export Config</button>
+<button class="px-4 py-2 bg-emerald-900 text-white text-sm font-bold uppercase tracking-wider hover:bg-emerald-800 transition-colors">Apply Changes</button>
+</div>
+</section>
+<!-- Settings Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Active Integrations (Bento Style) -->
+<div class="lg:col-span-8 space-y-8">
+<div class="bg-white border border-slate-200 p-6 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Active Integrations</h3>
+<span class="text-[10px] bg-emerald-100 text-emerald-900 px-2 py-0.5 font-bold uppercase">4 Live Nodes</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Integration Card: DOE/AFDC -->
+<div class="border border-slate-200 p-5 hover:border-emerald-900 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600" data-icon="ev_station">ev_station</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-900"></div>
+</div>
+</div>
+<h4 class="font-bold text-slate-900">DOE / AFDC</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">National Alternative Fuels Data Center sync for charging infrastructure.</p>
+<div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center">
+<span class="text-[10px] text-emerald-600 font-bold uppercase">Syncing Every 6h</span>
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="settings">settings</span>
+</div>
+</div>
+<!-- Integration Card: EPA -->
+<div class="border border-slate-200 p-5 hover:border-emerald-900 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600" data-icon="eco">eco</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-900"></div>
+</div>
+</div>
+<h4 class="font-bold text-slate-900">EPA Green Power</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">Environmental Protection Agency data for grid emission factors.</p>
+<div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center">
+<span class="text-[10px] text-emerald-600 font-bold uppercase">Connected</span>
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="settings">settings</span>
+</div>
+</div>
+<!-- Integration Card: ATTOM -->
+<div class="border border-slate-200 p-5 hover:border-emerald-900 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600" data-icon="domain">domain</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-900"></div>
+</div>
+</div>
+<h4 class="font-bold text-slate-900">ATTOM Property</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">Comprehensive property tax and ownership data for site evaluation.</p>
+<div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center">
+<span class="text-[10px] text-emerald-600 font-bold uppercase">API Active</span>
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="settings">settings</span>
+</div>
+</div>
+<!-- Integration Card: Salesforce -->
+<div class="border border-slate-200 p-5 hover:border-emerald-900 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600" data-icon="cloud">cloud</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-900"></div>
+</div>
+</div>
+<h4 class="font-bold text-slate-900">Salesforce CRM</h4>
+<p class="text-xs text-slate-500 mt-1 leading-relaxed">Bidirectional lead and account sync with enterprise CRM.</p>
+<div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center">
+<span class="text-[10px] text-slate-400 font-bold uppercase">Disabled</span>
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="settings">settings</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Provenance Section -->
+<div class="bg-white border border-slate-200 p-6">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Data Provenance</h3>
+<p class="text-xs text-slate-500 mt-1">Real-time health monitoring of upstream federal and municipal API nodes.</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- API Health Row -->
+<div class="flex items-center justify-between py-3 border-b border-slate-100">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<div>
+<p class="text-sm font-bold text-slate-900">NREL Utility Rate Database</p>
+<p class="text-[10px] text-slate-500 uppercase font-medium">Federal API</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900">99.98%</p>
+<p class="text-[10px] text-slate-400 uppercase">Uptime</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-slate-100">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<div>
+<p class="text-sm font-bold text-slate-900">Census Bureau TIGER/Line</p>
+<p class="text-[10px] text-slate-500 uppercase font-medium">Federal API</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900">100.0%</p>
+<p class="text-[10px] text-slate-400 uppercase">Uptime</p>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-slate-100">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<div>
+<p class="text-sm font-bold text-slate-900">NYC OpenData Zoning</p>
+<p class="text-[10px] text-slate-500 uppercase font-medium">Municipal API</p>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center gap-1 justify-end">
+<span class="material-symbols-outlined text-[12px] text-amber-600" data-icon="warning">warning</span>
+<p class="text-xs font-bold text-slate-900">84.22%</p>
+</div>
+<p class="text-[10px] text-slate-400 uppercase">Latency Detected</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: User & Team Management -->
+<div class="lg:col-span-4 space-y-8">
+<!-- User Profile Card -->
+<div class="bg-white border border-slate-200 p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Profile Large" class="w-24 h-24 rounded-full border-4 border-slate-50 shadow-sm" data-alt="sharp studio portrait of a confident male executive in a charcoal blazer looking directly at camera with neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlk34nDJVbDEdEF9YZCr4_L2k2JYX4kN9Qq342Z9fQiqv2AD_ZxGaiDsfFNaba0k-YOQlOEd3ylc0z8z4rbd0zOGQ0IMwpFQ3n6sModl4HLbxSLZU7Ons520EwW38zjmiw8uDQ1rW8Nik0QoTW9OFFlCOtVCmaDO_GK7jfvbFAMVBqs14B1YbDRQP7VIMO73k2-lapoqSWRDguVbBwsvtroCDBJYbbmHwyS_VCUwdae8VdxQMjoMJHCqHuUqYjwtvIzFKXVgTZ7zI"/>
+<button class="absolute bottom-0 right-0 p-1.5 bg-emerald-900 text-white rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<h3 class="text-lg font-bold text-slate-900">Johnathan Doe</h3>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mt-1">Senior Infrastructure Architect</p>
+<div class="w-full mt-6 pt-6 border-t border-slate-100 flex flex-col gap-2">
+<div class="flex justify-between text-[11px]">
+<span class="text-slate-400 uppercase font-bold">Email</span>
+<span class="text-slate-900 font-medium">j.doe@voltpulse.com</span>
+</div>
+<div class="flex justify-between text-[11px]">
+<span class="text-slate-400 uppercase font-bold">Timezone</span>
+<span class="text-slate-900 font-medium">GMT -05:00 (EST)</span>
+</div>
+</div>
+</div>
+<!-- Team Management -->
+<div class="bg-white border border-slate-200 p-6 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Team Members</h3>
+<button class="text-emerald-900">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-100 rounded flex items-center justify-center font-bold text-xs text-slate-600">SM</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Sarah Miller</p>
+<p class="text-[10px] text-slate-500">Regional Lead</p>
+</div>
+</div>
+<span class="text-[10px] border border-slate-200 px-2 py-0.5 uppercase font-bold text-slate-400">Admin</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-100 rounded flex items-center justify-center font-bold text-xs text-slate-600">RK</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Robert Kwon</p>
+<p class="text-[10px] text-slate-500">Data Scientist</p>
+</div>
+</div>
+<span class="text-[10px] border border-slate-200 px-2 py-0.5 uppercase font-bold text-slate-400">Editor</span>
+</div>
+<div class="flex items-center justify-between opacity-60">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-100 rounded flex items-center justify-center font-bold text-xs text-slate-600">AL</div>
+<div>
+<p class="text-xs font-bold text-slate-900">Anna Lopez</p>
+<p class="text-[10px] text-slate-500">Site Auditor</p>
+</div>
+</div>
+<span class="text-[10px] border border-slate-200 px-2 py-0.5 uppercase font-bold text-slate-400">Pending</span>
+</div>
+</div>
+<button class="w-full py-2 text-[10px] font-black uppercase tracking-widest text-slate-400 border border-dashed border-slate-200 hover:border-slate-300 hover:text-slate-600 transition-all">View All 12 Members</button>
+</div>
+<!-- Usage Quota -->
+<div class="bg-emerald-900 p-6 text-white space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80">Monthly API Usage</h3>
+<span class="material-symbols-outlined text-sm opacity-60" data-icon="info">info</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span>82,440 Calls</span>
+<span class="opacity-80">/ 100k</span>
+</div>
+<div class="w-full bg-emerald-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-[82%]"></div>
+</div>
+</div>
+<p class="text-[10px] opacity-70 leading-relaxed italic">Quota resets in 4 days. Contact support to increase enterprise throughput limits.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

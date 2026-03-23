@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - Intelligence CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Instrument+Sans:wght@500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#14532D",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        surface: "#FFFFFF",
+                        text: "#0F172A",
+                        muted: "#64748B",
+                        border: "#E2E8F0",
+                        accent: "#22C55E",
+                        alert: "#B91C1C",
+                        "score-good-bg": "#F0FDF4",
+                        "score-good-text": "#166534",
+                        "score-good-border": "#BBF7D0",
+                        "score-warn-bg": "#F1F5F9",
+                        "score-warn-text": "#475569",
+                        "score-warn-border": "#CBD5E1"
+                    },
+                    fontFamily: {
+                        heading: ['"Instrument Sans"', 'sans-serif'],
+                        body: ['Geist', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "2px",
+                        sm: "2px",
+                        md: "2px",
+                        lg: "2px",
+                        xl: "2px",
+                        full: "2px",
+                    },
+                    spacing: {
+                        sm: "8px",
+                        md: "16px",
+                        lg: "24px",
+                        xl: "32px",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Instrument Sans', sans-serif;
+            letter-spacing: -0.02em;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .text-small-caps {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .border-strict {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #E2E8F0;
+        }
+        /* Overriding Shared Component Defaults to match Strict Design System */
+        .layout-root {
+            background-color: #F8FAFC;
+        }
+        .nav-active {
+            background-color: #E2E8F0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="layout-root min-h-screen flex">
+<!-- Sidebar Navigation (Shared Component Integration) -->
+<div class="w-[240px] flex-shrink-0 bg-surface border-strict border-l-0 border-y-0 h-screen sticky top-0 flex flex-col justify-between p-lg">
+<div class="flex flex-col gap-xl">
+<div class="flex flex-col gap-1">
+<h1 class="font-heading text-text font-semibold text-xl">Intelligence CRM</h1>
+<p class="text-small-caps text-muted">Enterprise</p>
+</div>
+<nav class="flex flex-col gap-sm">
+<a class="flex items-center gap-md px-md py-sm rounded nav-active text-text transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-medium text-[14px]">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded hover:bg-background-light text-muted hover:text-text transition-colors" href="#">
+<span class="material-symbols-outlined">filter_alt</span>
+<span class="font-medium text-[14px]">Pipeline</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded hover:bg-background-light text-muted hover:text-text transition-colors" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-medium text-[14px]">Intelligence</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="flex items-center gap-md px-md py-sm rounded hover:bg-background-light text-muted hover:text-text transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-[14px]">Settings</span>
+</a>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 p-xl overflow-y-auto">
+<div class="max-w-6xl mx-auto flex flex-col gap-xl">
+<!-- Header -->
+<header class="flex justify-between items-end">
+<div>
+<h2 class="font-heading text-3xl font-semibold text-text">Pipeline Pulse</h2>
+<p class="text-muted mt-2 text-[14px]">Monitoring active deals and recent buying signals.</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="border-strict bg-surface px-md py-sm rounded text-[13px] font-heading font-medium hover:bg-background-light transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filter View
+                    </button>
+<button class="bg-primary text-surface px-md py-sm rounded text-[13px] font-heading font-medium hover:bg-[#166534] transition-colors">
+                        Sync Data
+                    </button>
+</div>
+</header>
+<!-- Signal Metrics Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface border-strict p-lg flex flex-col gap-sm">
+<h3 class="text-small-caps text-muted">New Triggers</h3>
+<div class="font-heading text-4xl text-primary font-semibold">12</div>
+<p class="text-[12px] text-muted flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-accent">trending_up</span>
+                        +3 since yesterday
+                    </p>
+</div>
+<div class="bg-surface border-strict p-lg flex flex-col gap-sm">
+<h3 class="text-small-caps text-muted">High Intent Deals</h3>
+<div class="font-heading text-4xl text-primary font-semibold">8</div>
+<p class="text-[12px] text-muted mt-1">Requiring immediate action</p>
+</div>
+<div class="bg-surface border-strict p-lg flex flex-col gap-sm">
+<h3 class="text-small-caps text-muted">Total Pipeline Risk</h3>
+<div class="font-heading text-4xl text-primary font-semibold">$4.2M</div>
+<p class="text-[12px] text-muted mt-1">Across 45 active opportunities</p>
+</div>
+</section>
+<!-- Data Table Section -->
+<section class="bg-surface border-strict flex flex-col">
+<div class="border-b border-border p-md flex justify-between items-center bg-[#F1F5F9]">
+<h3 class="font-heading font-semibold text-text text-lg">Active Signals</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-muted text-[18px]">search</span>
+<input class="border-strict pl-[32px] pr-md py-1 rounded text-[13px] focus:outline-none focus:border-primary w-[240px]" placeholder="Search accounts..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border bg-surface">
+<th class="p-md text-small-caps text-muted font-medium w-[25%]">Account</th>
+<th class="p-md text-small-caps text-muted font-medium w-[20%]">Deal Size</th>
+<th class="p-md text-small-caps text-muted font-medium w-[20%]">Intelligence Score</th>
+<th class="p-md text-small-caps text-muted font-medium w-[35%]">Latest Signal</th>
+</tr>
+</thead>
+<tbody class="text-[14px]">
+<!-- Row 1: High Intent -->
+<tr class="border-b border-border hover:bg-[#F1F5F9] transition-colors cursor-pointer group">
+<td class="p-md font-medium text-text flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-accent"></div>
+                                    Acme Corp
+                                </td>
+<td class="p-md text-muted font-mono text-[13px]">$150,000</td>
+<td class="p-md">
+<span class="inline-flex items-center justify-center font-mono text-[11px] font-medium px-2 py-1 rounded border border-score-good-border bg-score-good-bg text-score-good-text w-[48px]">
+                                        92
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex flex-col gap-1">
+<span class="text-text font-medium text-[13px]">New Exec Hire</span>
+<span class="text-muted text-[12px] truncate max-w-[300px]">CFO transition announced via PR Newswire</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: High Intent -->
+<tr class="border-b border-border hover:bg-[#F1F5F9] transition-colors cursor-pointer group">
+<td class="p-md font-medium text-text flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-accent"></div>
+                                    TechFlow
+                                </td>
+<td class="p-md text-muted font-mono text-[13px]">$85,000</td>
+<td class="p-md">
+<span class="inline-flex items-center justify-center font-mono text-[11px] font-medium px-2 py-1 rounded border border-score-good-border bg-score-good-bg text-score-good-text w-[48px]">
+                                        88
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex flex-col gap-1">
+<span class="text-text font-medium text-[13px]">Funding Round</span>
+<span class="text-muted text-[12px] truncate max-w-[300px]">Series B closed, expanding engineering team</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: Medium Intent -->
+<tr class="border-b border-border hover:bg-[#F1F5F9] transition-colors cursor-pointer group">
+<td class="p-md font-medium text-text flex items-center gap-sm pl-[24px]">
+                                    GlobalData
+                                </td>
+<td class="p-md text-muted font-mono text-[13px]">$220,000</td>
+<td class="p-md">
+<span class="inline-flex items-center justify-center font-mono text-[11px] font-medium px-2 py-1 rounded border border-score-warn-border bg-score-warn-bg text-score-warn-text w-[48px]">
+                                        75
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex flex-col gap-1">
+<span class="text-text font-medium text-[13px]">Tech Stack Change</span>
+<span class="text-muted text-[12px] truncate max-w-[300px]">Evaluating new analytics vendors</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: Low Intent / Stalled -->
+<tr class="border-b border-border hover:bg-[#F1F5F9] transition-colors cursor-pointer group">
+<td class="p-md font-medium text-text flex items-center gap-sm pl-[24px]">
+                                    CloudSync
+                                </td>
+<td class="p-md text-muted font-mono text-[13px]">$45,000</td>
+<td class="p-md">
+<span class="inline-flex items-center justify-center font-mono text-[11px] font-medium px-2 py-1 rounded border border-score-warn-border bg-score-warn-bg text-score-warn-text w-[48px]">
+                                        42
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex flex-col gap-1">
+<span class="text-text font-medium text-[13px] text-muted">No recent signals</span>
+<span class="text-muted text-[12px] truncate max-w-[300px]">Last activity 45 days ago</span>
+</div>
+</td>
+</tr>
+<!-- Row 5: Medium Intent -->
+<tr class="hover:bg-[#F1F5F9] transition-colors cursor-pointer group">
+<td class="p-md font-medium text-text flex items-center gap-sm pl-[24px]">
+                                    Nexus Systems
+                                </td>
+<td class="p-md text-muted font-mono text-[13px]">$115,000</td>
+<td class="p-md">
+<span class="inline-flex items-center justify-center font-mono text-[11px] font-medium px-2 py-1 rounded border border-score-warn-border bg-score-warn-bg text-score-warn-text w-[48px]">
+                                        68
+                                    </span>
+</td>
+<td class="p-md">
+<div class="flex flex-col gap-1">
+<span class="text-text font-medium text-[13px]">Competitor Mention</span>
+<span class="text-muted text-[12px] truncate max-w-[300px]">Viewed comparison page vs legacy provider</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</body></html>

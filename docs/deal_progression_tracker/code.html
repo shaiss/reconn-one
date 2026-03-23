@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VoltPulse CRM - Deal Progression Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#F8FAFC",
+                        "surface-bright": "#FFFFFF",
+                        "error-container": "#FEE2E2",
+                        "on-secondary": "#FFFFFF",
+                        "surface-container-highest": "#CBD5E1",
+                        "surface-container-low": "#F8FAFC",
+                        "on-secondary-fixed": "#0F172A",
+                        "outline-variant": "#CBD5E1",
+                        "background": "#F8FAFC",
+                        "on-primary": "#FFFFFF",
+                        "on-surface": "#0F172A",
+                        "surface-container-lowest": "#FFFFFF",
+                        "primary": "#14532D",
+                        "inverse-primary": "#22C55E",
+                        "tertiary-fixed": "#E0F2FE",
+                        "secondary-fixed": "#F1F5F9",
+                        "surface-dim": "#F1F5F9",
+                        "on-primary-fixed": "#14532D",
+                        "on-surface-variant": "#64748B",
+                        "surface": "#FFFFFF",
+                        "surface-tint": "#14532D",
+                        "primary-fixed-dim": "#BBF7D0",
+                        "inverse-surface": "#1E293B",
+                        "surface-container-high": "#E2E8F0",
+                        "on-error-container": "#7F1D1D",
+                        "on-secondary-fixed-variant": "#334155",
+                        "tertiary-fixed-dim": "#BAE6FD",
+                        "primary-container": "#DCFCE7",
+                        "on-error": "#FFFFFF",
+                        "on-tertiary": "#FFFFFF",
+                        "tertiary": "#0369A1",
+                        "tertiary-container": "#E0F2FE",
+                        "on-tertiary-fixed": "#0C4A6E",
+                        "surface-variant": "#F1F5F9",
+                        "outline": "#E2E8F0",
+                        "on-primary-fixed-variant": "#166534",
+                        "secondary-container": "#F1F5F9",
+                        "secondary": "#334155",
+                        "on-tertiary-fixed-variant": "#0369A1",
+                        "on-secondary-container": "#0F172A",
+                        "secondary-fixed-dim": "#E2E8F0",
+                        "error": "#B91C1C",
+                        "primary-fixed": "#DCFCE7",
+                        "surface-container": "#F1F5F9",
+                        "on-tertiary-container": "#0C4A6E",
+                        "on-primary-container": "#14532D",
+                        "on-background": "#0F172A"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .monospace-data { font-family: 'JetBrains Mono', monospace; }
+        .kanban-column { min-width: 320px; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-slate-50 border-r border-slate-200 w-64">
+<div class="p-6">
+<h1 class="text-xl font-black text-emerald-950">Intelligence CRM</h1>
+<p class="font-sans text-xs uppercase tracking-widest font-bold text-slate-500 mt-1">EV Charging Division</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Dossier</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Decision Map</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Intelligence</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Accounts</span>
+</a>
+<a class="flex items-center gap-3 bg-emerald-900 text-white px-4 py-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Deals</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:bg-slate-200 transition-all" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span class="font-sans text-xs uppercase tracking-widest font-bold">Integrations</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full bg-slate-200" data-alt="Professional corporate executive portrait with neutral background and sharp lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnMrOzMk3oPPyWCh10T7piWof56dNI15XSJJqTQAtsg762WbizD02Jh4hwJY5ggwtKxP_G6ErmEgJ7z0Xw7xxHrSELhUsheHYb0E3xxIVAn3JsrQW4NGrWhUFUE4r5Q5qzD7NmmdEJgDN8bDLCmhjfqD-6oR6GnaBwPsT4QHxKPWt0yZbBtCurXSRJP1DcC_uXXS57p1yZwtPi0ntI1NhwIrjvfbHH5Ei6Mfamtki40V9Ci8cC4MGSJD9i0N91dgwBZrzKjdNrT6g"/>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-on-surface">Alex Mercer</span>
+<span class="text-[10px] uppercase tracking-tighter text-on-surface-variant font-bold">M&amp;A Director</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex justify-between items-center w-full px-6 h-16 sticky top-0 z-30 bg-white border-b border-slate-200">
+<div class="flex items-center gap-6">
+<span class="text-lg font-bold tracking-tight text-emerald-900">VoltPulse CRM</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline rounded-none text-sm focus:ring-1 focus:ring-primary focus:border-primary w-80" placeholder="Search deals, entities, or risk factors..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Kanban Board Header -->
+<section class="px-6 py-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-2xl font-black text-on-surface tracking-tight uppercase">Deal Progression Tracker</h2>
+<p class="text-on-surface-variant font-medium text-sm mt-1">Advanced Pipeline Analysis: M&amp;A Stages 3-8</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex bg-surface-container rounded-none p-1">
+<button class="px-3 py-1.5 bg-white text-xs font-bold uppercase tracking-widest text-primary border border-outline">Board View</button>
+<button class="px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface">Timeline View</button>
+</div>
+<button class="bg-primary text-white px-4 py-2 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                        Create New Deal
+                    </button>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-y border-outline py-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-wider">Total Pipeline Value</span>
+<span class="monospace-data text-xl font-medium text-primary">$1.42B</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-wider">Active Entities</span>
+<span class="monospace-data text-xl font-medium text-on-surface">42</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-wider">Avg. Deal Velocity</span>
+<span class="monospace-data text-xl font-medium text-on-surface">182 Days</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-wider">Risk Exposure</span>
+<span class="monospace-data text-xl font-medium text-error">12.4%</span>
+</div>
+</div>
+</section>
+<!-- Kanban Scroll Container -->
+<section class="flex-1 overflow-x-auto pb-8 px-6">
+<div class="flex gap-6 h-full items-start">
+<!-- Stage 3: Technical Convertibility -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b-4 border-slate-300">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface">3. Technical Convertibility</h3>
+<span class="monospace-data text-[10px] bg-slate-200 px-1.5 py-0.5 font-bold">04</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-9021</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-primary-container text-primary">On Track</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">OmniGrid Systems LLC</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$84.5M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant flex items-center justify-between">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="Portrait of a young male professional in a smart casual outfit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwEGGUviwybiJH1T7KWznE-qUELPok8H6RNNOCr9OLRZX6mF8MiJgblOtjrJVGN5f7RTuyZEuQKiBIrQBRwNjajqEfm6pLqP30GxP9gfX2U93fj1mEbiqnW1QKpXaEOorcol_jLHNdW38RJBp2N_r2r9cfcsL9O9_SRH8cuB27Pf7CE2ehKZT5Abi-hcLxP7m-jKd3C8feCInqP9TMdsCr41IYTgf9TMgRyB4a6lO2qkaaITILQf5l760uphQdo_asLc5Mklp2428"/>
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="Portrait of a smiling professional woman with short dark hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtGdbHirQCbsGGHyNjCx1oNLL8IKVp0zKwnLcqtOpxehyZ8KPMGGvqiNIXp9CYhyLEyW9jgYb35kB_qtwQ1pyZHEmkKDfCba8Mrv0NDpZumKRDlNXmloJPYKgS80Mzn53WWVfjSkn8gvezUaIv3b3V4aP--T3UVMTcmDt5YCKK_aZ-Y8UPubbOhlBp8aEMaoBKYXMbtWDKx-njSMJul03IzqrMDU2Ks8zT3N94E_1st8vZ5C6-IXsQWIqxXAQxggEXMPsF7xp97GA"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">more_horiz</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-8832</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-error-container text-error">Delayed</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Lithium-Core Kinetics</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$210.0M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant flex items-center justify-between">
+<span class="text-[10px] text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span> Technical debt detected
+                            </span>
+</div>
+</div>
+</div>
+<!-- Stage 4: Physical Feasibility -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b-4 border-emerald-600">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface">4. Physical Feasibility</h3>
+<span class="monospace-data text-[10px] bg-slate-200 px-1.5 py-0.5 font-bold">02</span>
+</div>
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-1102</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-primary-container text-primary">Ready</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Northeast Transit Network</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$42.1M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant font-medium">8 sites surveyed</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">attach_file</span>
+</div>
+</div>
+</div>
+<!-- Stage 5: Economic Survivability -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b-4 border-slate-300">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface">5. Economic Survivability</h3>
+<span class="monospace-data text-[10px] bg-slate-200 px-1.5 py-0.5 font-bold">03</span>
+</div>
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer border-l-4 border-l-error">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-9941</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-error text-white">High Risk</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">SolarStream Renewables</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$12.5M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant flex flex-col gap-1">
+<div class="w-full bg-slate-100 h-1">
+<div class="bg-error w-3/4 h-1"></div>
+</div>
+<span class="text-[9px] text-on-surface-variant uppercase font-bold tracking-tight">EBITDA Projection Variance</span>
+</div>
+</div>
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-8772</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-primary-container text-primary">On Track</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Voltaic Charge Points</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$67.9M</span>
+</div>
+</div>
+</div>
+<!-- Stage 6: Control & Structure -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b-4 border-emerald-600">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface">6. Control &amp; Structure</h3>
+<span class="monospace-data text-[10px] bg-slate-200 px-1.5 py-0.5 font-bold">01</span>
+</div>
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-4412</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-surface-container-highest text-on-surface">Review</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">EcoFleet Logistics Intl.</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$156.0M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant flex items-center justify-between">
+<span class="text-[10px] text-on-surface font-bold uppercase tracking-tight">Majority Stake (72%)</span>
+</div>
+</div>
+</div>
+<!-- Stage 7: Capital Fit -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b-4 border-slate-300">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface">7. Capital Fit</h3>
+<span class="monospace-data text-[10px] bg-slate-200 px-1.5 py-0.5 font-bold">05</span>
+</div>
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer border-l-4 border-l-primary">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-0021</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-primary text-white">Funded</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Zenith Charging Hubs</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$540.0M</span>
+</div>
+</div>
+</div>
+<!-- Stage 8: Execution & Monetization -->
+<div class="kanban-column flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b-4 border-emerald-900">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface">8. Execution</h3>
+<span class="monospace-data text-[10px] bg-slate-200 px-1.5 py-0.5 font-bold">01</span>
+</div>
+<div class="bg-white border border-outline p-4 flex flex-col gap-3 group hover:border-on-surface transition-colors cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="text-xs font-bold text-on-surface-variant monospace-data">ID: VP-1002</span>
+<span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-primary-container text-primary font-black">Finalizing</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">UrbanGrid EV Solutions</h4>
+<div class="flex flex-col gap-1">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Deal Size</span>
+<span class="monospace-data text-base font-medium">$28.2M</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-[10px] text-emerald-700 font-bold uppercase">Closing Documents Sent</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Utility Status Bar (Footer-esque) -->
+<footer class="h-10 bg-surface-container border-t border-outline-variant px-6 flex items-center justify-between text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+<div class="flex gap-6">
+<span>Database Sync: Active</span>
+<span>Uptime: 99.9%</span>
+<span>User: mercer_a_admin</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">lock</span>
+<span>Encrypted Session</span>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Restricted to relevant screens) -->
+<div class="fixed bottom-6 right-6 z-50 md:hidden">
+<button class="w-14 h-14 bg-emerald-900 text-white rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</body></html>

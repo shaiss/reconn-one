@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#0F172A",
+              "outline-variant": "#CBD5E1",
+              "primary-container": "#DCFCE7",
+              "on-surface-variant": "#64748B",
+              "on-surface": "#0F172A",
+              "on-primary": "#FFFFFF",
+              "background": "#F8FAFC",
+              "secondary-container": "#F1F5F9",
+              "inverse-primary": "#22C55E",
+              "primary": "#14532D",
+              "tertiary-fixed-dim": "#BAE6FD",
+              "surface-container-highest": "#CBD5E1",
+              "on-secondary-fixed-variant": "#334155",
+              "surface-container-low": "#F8FAFC",
+              "secondary": "#334155",
+              "on-tertiary": "#FFFFFF",
+              "on-tertiary-fixed-variant": "#0369A1",
+              "inverse-surface": "#1E293B",
+              "surface-tint": "#14532D",
+              "on-error": "#FFFFFF",
+              "primary-fixed": "#DCFCE7",
+              "surface": "#FFFFFF",
+              "error-container": "#FEE2E2",
+              "on-secondary-container": "#0F172A",
+              "on-primary-fixed": "#14532D",
+              "surface-dim": "#F1F5F9",
+              "primary-fixed-dim": "#BBF7D0",
+              "error": "#B91C1C",
+              "on-secondary": "#FFFFFF",
+              "on-primary-container": "#14532D",
+              "on-tertiary-container": "#0C4A6E",
+              "tertiary-container": "#E0F2FE",
+              "on-background": "#0F172A",
+              "outline": "#E2E8F0",
+              "surface-container-lowest": "#FFFFFF",
+              "secondary-fixed": "#F1F5F9",
+              "tertiary": "#0369A1",
+              "surface-container-high": "#E2E8F0",
+              "surface-variant": "#F1F5F9",
+              "surface-container": "#F1F5F9",
+              "on-tertiary-fixed": "#0C4A6E",
+              "tertiary-fixed": "#E0F2FE",
+              "surface-bright": "#FFFFFF",
+              "inverse-on-surface": "#F8FAFC",
+              "on-primary-fixed-variant": "#166534",
+              "secondary-fixed-dim": "#E2E8F0",
+              "on-error-container": "#7F1D1D"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active-ring {
+            box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #14532D;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50 uppercase tracking-tighter">Emerald Intelligence</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-emerald-700 transition-colors" href="#">Dashboard</a>
+<a class="text-emerald-900 dark:text-emerald-400 font-bold hover:text-emerald-700 transition-colors" href="#">Onboarding</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-emerald-700 transition-colors" href="#">Reports</a>
+</div>
+<div class="flex items-center gap-4 border-l border-slate-200 pl-6 ml-2">
+<span class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer transition-colors" data-icon="help">help</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User profile" data-alt="professional headshot of a corporate executive with a clean minimalist background and neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjiG6ISxB2U5fxfsIHuddUTvxhKqRcptH2iFqIUdhhIXJXCMjcEhHX8a9R_zXm8Keg5RQuSHgX4RLUf-gi-vZUD-YbyinMT-Ool6WMVUdAo01ekqRpmTMaMrtNhYDNr-XpjZPHhVbRcfeyg8YHr1l_eSSLLNJ_d46-TTPGQV1uGmBS4P8roWjFRvDZwKfjpMW70j4hMJ9_BRHTsJYlXdz14wefJSvuMwv8A6g5Ad-2LHe7E19zMIlmintxyedLBfuuQgPgKSs1VO4"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-72 border-r bg-slate-50 dark:bg-slate-950 transition-all duration-200 ease-in-out z-40">
+<div class="flex flex-col p-6 gap-y-4">
+<div class="mb-6">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-inter text-sm font-semibold tracking-wide uppercase text-emerald-800 dark:text-emerald-500">Onboarding</h2>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest">Setup Phase</p>
+</div>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-inter text-sm font-semibold tracking-wide uppercase">Product Context</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-inter text-sm font-semibold tracking-wide uppercase">Target Personas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-emerald-900 dark:text-emerald-400 rounded-lg shadow-emerald-900/10 shadow-sm border border-slate-200 dark:border-slate-800 scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="target">target</span>
+<span class="font-inter text-sm font-semibold tracking-wide uppercase">ICP Definition</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-emerald-800 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-inter text-sm font-semibold tracking-wide uppercase">Growth Goals</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full py-3 bg-primary text-white rounded-lg font-bold shadow-lg shadow-emerald-900/10 hover:brightness-110 transition-all active:scale-95">
+                    Save Progress
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 pt-16 min-h-screen bg-surface-container-low">
+<div class="max-w-5xl mx-auto p-12">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary-container text-primary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">Step 3 of 4</span>
+</div>
+<h1 class="text-4xl font-extrabold text-primary tracking-tight mb-4">Define your Ideal Customer Profile</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                    Set the parameters for your ideal market segment. This configuration informs the AI on how to prioritize signals and score potential leads.
+                </p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Form Configuration -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Geography Selection -->
+<section class="bg-surface p-8 rounded-xl border border-outline shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+<h3 class="text-xl font-bold text-on-surface">Geography</h3>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<label class="relative flex items-center gap-3 p-4 rounded-lg border border-outline hover:border-primary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary border-slate-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Northeast</span>
+</label>
+<label class="relative flex items-center gap-3 p-4 rounded-lg border border-outline hover:border-primary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary border-slate-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Southeast</span>
+</label>
+<label class="relative flex items-center gap-3 p-4 rounded-lg border border-outline hover:border-primary transition-colors cursor-pointer group">
+<input class="w-5 h-5 text-primary border-slate-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Midwest</span>
+</label>
+<label class="relative flex items-center gap-3 p-4 rounded-lg border border-outline hover:border-primary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 text-primary border-slate-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Southwest</span>
+</label>
+<label class="relative flex items-center gap-3 p-4 rounded-lg border border-outline hover:border-primary transition-colors cursor-pointer group">
+<input class="w-5 h-5 text-primary border-slate-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">West Coast</span>
+</label>
+<label class="relative flex items-center gap-3 p-4 rounded-lg border border-outline hover:border-primary transition-colors cursor-pointer group">
+<input class="w-5 h-5 text-primary border-slate-300 rounded focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Rocky Mtn</span>
+</label>
+</div>
+</section>
+<!-- Company & Site Types (Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Company Type -->
+<section class="bg-surface p-8 rounded-xl border border-outline shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="business">business</span>
+<h3 class="text-xl font-bold text-on-surface">Company Type</h3>
+</div>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-primary bg-primary-container/10 text-primary font-semibold text-sm">
+                                    CPOs
+                                    <span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-outline hover:bg-slate-50 text-on-surface-variant font-medium text-sm transition-colors">
+                                    Site Owners
+                                </button>
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-outline hover:bg-slate-50 text-on-surface-variant font-medium text-sm transition-colors">
+                                    Utilities
+                                </button>
+<button class="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-outline hover:bg-slate-50 text-on-surface-variant font-medium text-sm transition-colors">
+                                    Fleet Operators
+                                </button>
+</div>
+</section>
+<!-- Site Type -->
+<section class="bg-surface p-8 rounded-xl border border-outline shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<h3 class="text-xl font-bold text-on-surface">Site Type</h3>
+</div>
+<div class="space-y-3">
+<label class="flex items-center justify-between px-4 py-3 rounded-lg border border-outline cursor-pointer hover:bg-slate-50 transition-colors">
+<span class="text-sm font-medium text-on-surface">Retail Centers</span>
+<input checked="" class="text-primary focus:ring-primary" name="site_type" type="radio"/>
+</label>
+<label class="flex items-center justify-between px-4 py-3 rounded-lg border border-outline cursor-pointer hover:bg-slate-50 transition-colors">
+<span class="text-sm font-medium text-on-surface">Highway Corridors</span>
+<input class="text-primary focus:ring-primary" name="site_type" type="radio"/>
+</label>
+<label class="flex items-center justify-between px-4 py-3 rounded-lg border border-outline cursor-pointer hover:bg-slate-50 transition-colors">
+<span class="text-sm font-medium text-on-surface">Transit Hubs</span>
+<input class="text-primary focus:ring-primary" name="site_type" type="radio"/>
+</label>
+</div>
+</section>
+</div>
+<!-- Minimum Score Threshold -->
+<section class="bg-surface p-8 rounded-xl border border-outline shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<h3 class="text-xl font-bold text-on-surface">Minimum Score Threshold</h3>
+</div>
+<span class="bg-primary text-white font-bold px-3 py-1 rounded text-lg">82</span>
+</div>
+<div class="relative w-full h-12 flex items-center">
+<div class="absolute w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[82%] h-full bg-primary"></div>
+</div>
+<input class="absolute w-full h-2 bg-transparent appearance-none cursor-pointer accent-primary focus:outline-none" max="100" min="0" type="range" value="82"/>
+</div>
+<div class="flex justify-between mt-4">
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Broad Reach</span>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest">High Quality</span>
+</div>
+</section>
+</div>
+<!-- Right Column: Pro-Tips & Context -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Performance Preview Bento Card -->
+<div class="bg-primary p-8 rounded-xl text-white overflow-hidden relative group">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-10 rotate-12 transition-transform group-hover:scale-110" data-icon="insights">insights</span>
+<h4 class="text-lg font-bold mb-2">Impact Projection</h4>
+<p class="text-emerald-100/80 text-sm mb-6 leading-relaxed">Based on these filters, our intelligence engine has identified:</p>
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-emerald-800/50 pb-2">
+<span class="text-sm font-medium text-emerald-200">Total Sites</span>
+<span class="text-2xl font-bold">14,282</span>
+</div>
+<div class="flex items-center justify-between border-b border-emerald-800/50 pb-2">
+<span class="text-sm font-medium text-emerald-200">High Score Leads</span>
+<span class="text-2xl font-bold">1,405</span>
+</div>
+</div>
+<div class="mt-8 flex items-center gap-2 text-xs font-bold bg-emerald-800/40 w-fit px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-xs" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                            94% MATCH ACCURACY
+                        </div>
+</div>
+<!-- Pro-Tip Component -->
+<div class="bg-surface-container p-6 rounded-xl border border-slate-200">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="tips_and_updates">tips_and_updates</span>
+<h5 class="text-xs font-bold text-on-surface uppercase tracking-widest">Intelligence Pro-Tip</h5>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed italic">
+                            "Setting a threshold above 80 typically yields conversion rates 3x higher than industry average, but restricts total volume. For expansion phases, we recommend 65-75."
+                        </p>
+</div>
+<!-- Resource Card -->
+<div class="relative rounded-xl overflow-hidden aspect-[4/3] group cursor-pointer shadow-sm">
+<img alt="Corporate office view" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="modern glass architecture of a high-rise corporate building reflected in sunlight with a clean corporate aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAAZfje3shzrxVck0klnLD7H76kpCnnzaozX85gHWN08yPI6eW2gmEeTbnz6hs5TZI2UUwQMAQnYpJXMTtl3wH6PBZCe_hi4EePIGccl1un5l0Ey89JVAUG37jJSxLwJBMUIYuEgcGVI2yW6PFBU94YGPeMVKaetAyGO-2IBbr4w8Y_ZJpZRJjV5Mdsn4KVB9wwxoCDFvx7cQBdhuqJfLTN8uxbwvgGTpZXajJBk7HHFesyD-x71FbnpPV44-qeKwco4mgUI-Dofo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-6">
+<p class="text-[10px] font-bold text-emerald-300 uppercase tracking-widest mb-1">Guide</p>
+<h5 class="text-white font-bold leading-tight">Understanding ICP Scoring Factors</h5>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<footer class="mt-12 pt-8 border-t border-slate-200 flex items-center justify-between">
+<button class="flex items-center gap-2 px-6 py-3 text-on-surface-variant font-bold hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    Previous Step
+                </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-secondary-container text-secondary font-bold rounded-lg hover:bg-slate-200 transition-colors">
+                        Save as Draft
+                    </button>
+<button class="px-10 py-3 bg-primary text-white font-bold rounded-lg shadow-lg shadow-emerald-900/10 hover:brightness-110 active:scale-95 transition-all">
+                        Continue to Growth Goals
+                    </button>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

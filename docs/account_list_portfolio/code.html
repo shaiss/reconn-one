@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .font-mono-data { font-family: 'JetBrains Mono', monospace; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#F8FAFC",
+                        "surface-bright": "#FFFFFF",
+                        "error-container": "#FEE2E2",
+                        "on-secondary": "#FFFFFF",
+                        "surface-container-highest": "#CBD5E1",
+                        "surface-container-low": "#F8FAFC",
+                        "on-secondary-fixed": "#0F172A",
+                        "outline-variant": "#CBD5E1",
+                        "background": "#F8FAFC",
+                        "on-primary": "#FFFFFF",
+                        "on-surface": "#0F172A",
+                        "surface-container-lowest": "#FFFFFF",
+                        "primary": "#14532D",
+                        "inverse-primary": "#22C55E",
+                        "tertiary-fixed": "#E0F2FE",
+                        "secondary-fixed": "#F1F5F9",
+                        "surface-dim": "#F1F5F9",
+                        "on-primary-fixed": "#14532D",
+                        "on-surface-variant": "#64748B",
+                        "surface": "#FFFFFF",
+                        "surface-tint": "#14532D",
+                        "primary-fixed-dim": "#BBF7D0",
+                        "inverse-surface": "#1E293B",
+                        "surface-container-high": "#E2E8F0",
+                        "on-error-container": "#7F1D1D",
+                        "on-secondary-fixed-variant": "#334155",
+                        "tertiary-fixed-dim": "#BAE6FD",
+                        "primary-container": "#DCFCE7",
+                        "on-error": "#FFFFFF",
+                        "on-tertiary": "#FFFFFF",
+                        "tertiary": "#0369A1",
+                        "tertiary-container": "#E0F2FE",
+                        "on-tertiary-fixed": "#0C4A6E",
+                        "surface-variant": "#F1F5F9",
+                        "outline": "#E2E8F0",
+                        "on-primary-fixed-variant": "#166534",
+                        "secondary-container": "#F1F5F9",
+                        "secondary": "#334155",
+                        "on-tertiary-fixed-variant": "#0369A1",
+                        "on-secondary-container": "#0F172A",
+                        "secondary-fixed-dim": "#E2E8F0",
+                        "error": "#B91C1C",
+                        "primary-fixed": "#DCFCE7",
+                        "surface-container": "#F1F5F9",
+                        "on-tertiary-container": "#0C4A6E",
+                        "on-primary-container": "#14532D",
+                        "on-background": "#0F172A"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background font-body text-on-background antialiased min-h-screen">
+<!-- TopNavBar Implementation from JSON -->
+<nav class="bg-white dark:bg-slate-950 flex justify-between items-center w-full px-6 h-16 sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 flat no shadows font-sans text-sm font-medium">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tight text-emerald-900 dark:text-emerald-50">VoltPulse CRM</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">Overview</a>
+<a class="text-emerald-700 dark:text-emerald-400 border-b-2 border-emerald-700 font-semibold h-16 flex items-center" href="#">Accounts</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">Analytics</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-base">search</span>
+<input class="bg-slate-50 border-none rounded-lg pl-10 pr-4 py-2 text-xs focus:ring-2 focus:ring-emerald-500 w-64" placeholder="Search accounts..." type="text"/>
+</div>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors rounded-full text-slate-600">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors rounded-full text-slate-600">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="User profile avatar" data-alt="professional portrait of a corporate executive in a suit with a neutral studio background and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdcoHlE3rd_sPqq-9-LBV7IlG1nvChkvDfa6HP1PLcJjK1cRY-5u1Nbnaw-VZ7aTX7pNTyBwmU9ZBsItRBxQ6zjHWjM-GlAKkSmxajNFmDYJXlbP1c89vmyiYsEtvWKF1crAdizoWN6ztIdKa0BTzOY55R-LR0eL4PwEuGrjuwm6_SOxqpToDUtTuXQXR8nMoVcwl9vmXlVytsnZe0GhN7ZPjB-H2QGYN1_0q2NGrUmzmA-EL9OZqycQZ9R7b5eBCkITXDd1ZQk94"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Implementation from JSON -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-slate-50 dark:bg-slate-900 w-64 border-r border-slate-200 dark:border-slate-800 flat no shadows pt-20">
+<div class="px-6 mb-8">
+<h2 class="text-xl font-black text-emerald-950 dark:text-emerald-100">Intelligence CRM</h2>
+<p class="text-[10px] uppercase tracking-widest font-bold text-slate-500 mt-1">EV Charging Division</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-6 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-6 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Dossier</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-6 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span>Decision Map</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-6 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span>Intelligence</span>
+</a>
+<a class="flex items-center gap-3 bg-emerald-900 text-white rounded-none px-6 py-3 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Accounts</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-6 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span>Deals</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-6 py-3 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all font-sans text-xs uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span>Integrations</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-64 min-h-screen">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+<div>
+<nav class="flex items-center gap-2 text-xs text-on-surface-variant mb-3">
+<span class="uppercase font-bold tracking-tighter">Portfolio</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="uppercase font-bold tracking-tighter text-emerald-900">EV Charging Infrastructure</span>
+</nav>
+<h1 class="text-4xl font-black tracking-tight text-on-surface">Account List</h1>
+<p class="text-on-surface-variant mt-2 max-w-xl">Centralized intelligence monitoring for high-priority EV infrastructure partners and strategic EPC targets.</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex bg-white border border-outline p-1 rounded-lg">
+<button class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-emerald-900 text-white rounded">Active Targets</button>
+<button class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors">Watchlist</button>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-emerald-800 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+                        New Account
+                    </button>
+</div>
+</header>
+<!-- Filters Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+<div class="bg-white border border-outline rounded-xl p-4 flex flex-col gap-2">
+<label class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Industry Segment</label>
+<select class="border-none p-0 text-sm font-semibold focus:ring-0 cursor-pointer">
+<option>All Segments</option>
+<option>Hardware Manufacturers</option>
+<option>EPC Contractors</option>
+<option>Capital Partners</option>
+</select>
+</div>
+<div class="bg-white border border-outline rounded-xl p-4 flex flex-col gap-2">
+<label class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Region</label>
+<select class="border-none p-0 text-sm font-semibold focus:ring-0 cursor-pointer">
+<option>Global Markets</option>
+<option>North America</option>
+<option>EMEA</option>
+<option>APAC</option>
+</select>
+</div>
+<div class="bg-white border border-outline rounded-xl p-4 flex flex-col gap-2">
+<label class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">ICP Match</label>
+<div class="flex gap-2 mt-1">
+<span class="bg-primary-container text-on-primary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">High</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">Medium</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">Low</span>
+</div>
+</div>
+<div class="bg-white border border-outline rounded-xl p-4 flex flex-col gap-2">
+<label class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Score Threshold</label>
+<div class="flex items-center gap-3">
+<input class="accent-emerald-900 w-full h-1" type="range"/>
+<span class="font-mono-data text-xs font-bold text-emerald-900">80+</span>
+</div>
+</div>
+</div>
+<!-- Main Portfolio Table -->
+<div class="bg-white border border-outline rounded-none overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-outline">
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Account Name</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Segment</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Total Sites</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Current Network</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Active Signal</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant text-right">Intel Score</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-emerald-100 flex items-center justify-center border border-emerald-200 rounded">
+<span class="material-symbols-outlined text-emerald-900">electric_car</span>
+</div>
+<div>
+<p class="text-sm font-bold text-emerald-950">VoltStream Infrastructure</p>
+<p class="text-[10px] text-on-surface-variant">voltstream.io</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-emerald-50 text-emerald-900 border border-emerald-100 text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Hardware</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-sm font-medium">1,248</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[8px] font-bold">Tesla</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[8px] font-bold">ABB</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">+2 providers</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-xs font-medium text-emerald-900 uppercase">Grid Expansion Bid</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="inline-flex items-center gap-1 bg-emerald-900 text-white px-3 py-1 font-mono-data font-bold text-xs rounded-sm">
+                                        94
+                                    </div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-slate-100 flex items-center justify-center border border-slate-200 rounded">
+<span class="material-symbols-outlined text-slate-700">construction</span>
+</div>
+<div>
+<p class="text-sm font-bold text-emerald-950">Summit Grid Services</p>
+<p class="text-[10px] text-on-surface-variant">summitgrid.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold px-2 py-1 uppercase tracking-wider">EPC</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-sm font-medium">432</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="text-xs text-on-surface-variant font-medium">Internal / Proprietary</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="text-xs font-medium text-amber-700 uppercase">Permit Acquisition</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="inline-flex items-center gap-1 bg-emerald-700 text-white px-3 py-1 font-mono-data font-bold text-xs rounded-sm">
+                                        81
+                                    </div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-blue-50 flex items-center justify-center border border-blue-100 rounded">
+<span class="material-symbols-outlined text-blue-900">account_balance</span>
+</div>
+<div>
+<p class="text-sm font-bold text-emerald-950">BlueHorizon Equity</p>
+<p class="text-[10px] text-on-surface-variant">bluehorizon.cap</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-blue-50 text-blue-900 border border-blue-100 text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Capital</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-sm font-medium">2,810</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[8px] font-bold">CP</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">ChargePoint Multi-site</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span class="text-xs font-medium uppercase tracking-tight">Dormant (14d)</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="inline-flex items-center gap-1 bg-slate-400 text-white px-3 py-1 font-mono-data font-bold text-xs rounded-sm">
+                                        67
+                                    </div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-emerald-100 flex items-center justify-center border border-emerald-200 rounded">
+<span class="material-symbols-outlined text-emerald-900">power</span>
+</div>
+<div>
+<p class="text-sm font-bold text-emerald-950">MegaCharge Solutions</p>
+<p class="text-[10px] text-on-surface-variant">megacharge.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-emerald-50 text-emerald-900 border border-emerald-100 text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Hardware</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-sm font-medium">156</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[8px] font-bold">EV</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[8px] font-bold">T</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Mix Portfolio</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-medium text-emerald-900 uppercase">Series B Funding News</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="inline-flex items-center gap-1 bg-emerald-900 text-white px-3 py-1 font-mono-data font-bold text-xs rounded-sm">
+                                        91
+                                    </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="px-6 py-4 bg-white border-t border-outline flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Showing 1-20 of 1,482 Accounts</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant border border-outline hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center bg-emerald-900 text-white font-mono-data text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant border border-outline hover:bg-slate-50 transition-colors font-mono-data text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant border border-outline hover:bg-slate-50 transition-colors font-mono-data text-xs">3</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant border border-outline hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Insights Section (Asymmetric / Bento) -->
+<div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-emerald-950 text-white p-8 overflow-hidden relative group">
+<div class="relative z-10">
+<h3 class="text-2xl font-black mb-4 tracking-tighter">Market Penetration Signal</h3>
+<p class="text-emerald-100 max-w-md mb-6 leading-relaxed">Intelligence analysis indicates a 22% surge in EPC contract filings across the North American Northeast region in the last 72 hours. Five Tier-1 accounts are currently active in this RFP cycle.</p>
+<button class="bg-white text-emerald-950 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-emerald-50 transition-colors">View Deep Signal Report</button>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 group-hover:opacity-40 transition-opacity">
+<img alt="Market Data Visualization" class="h-full w-full object-cover" data-alt="abstract digital visualization of market data points and connections on a dark grid backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtptdS84qnHxuJ7uUUbT5y9N27EqwigUZwZ5waDfHjLzyC-xEo9P-R6cDI5HXgTd3IUW6CjZsVhibBMk7RdCLq0XRfIKxw8DKF3f_-XKP36Szs_BkC8cf67Gr9EVFlgSJbtsgaLGoMcW8PfqzQ9_2x6tC9VpV4BUWTjIntrkhTEFtLStHtsV1bG4Xs91e3-DFnVGGP1XDKeeMs6gggEhrU027Q41LLWdl_2Kel05iJdyYOvc0h3dtNa5JomDQOoLaDwg_MmJvvLwk"/>
+</div>
+</div>
+<div class="bg-white border border-outline p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-xs uppercase font-black tracking-widest text-on-surface-variant">Top Contributor</h4>
+<span class="material-symbols-outlined text-emerald-600">verified</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Contributor" class="w-12 h-12 rounded-full border border-outline" data-alt="professional portrait of a high-performing female business analyst with a confident smile and urban office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC239ksmHNzvWklzEmIUHP7RU5MO70EoNEpZpTaek_H_aGzW26KlOcxTwYkOG8j4posOJ13aScswwuKbAXq78sCCQ83lw8aLt9bVTCkZkLkjqx167hnGNrP8xuIPwr2gUfgY9Ahxd0KFJ-YrPud67y3Afj8eA7fW7k6GsAToxFPkXt0W-0yK1qZGJoLMpr2rcnIkPjVQaDkwQYlt_8_mUKe_AxsxYOGAWhEtNirMlrPdzQgQPLxONwyki389Wyq6ck-pQ2QFnDN6k8"/>
+<div>
+<p class="text-sm font-bold">Elena Rodriguez</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Senior Intelligence Lead</p>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline flex items-center justify-between">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Active Leads</span>
+<span class="font-mono-data text-lg font-black text-emerald-900">42</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation Shell -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-outline z-50 flex justify-around items-center h-16 px-4">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-900">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Accounts</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">sensors</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Intel</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Profile</span>
+</button>
+</div>
+</body></html>

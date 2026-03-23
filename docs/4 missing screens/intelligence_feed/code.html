@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Intelligence Feed - Intelligence CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Instrument+Sans:wght@500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#14532D",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#102217",
+                        "surface": "#FFFFFF",
+                        "text-main": "#0F172A",
+                        "muted": "#64748B",
+                        "border-color": "#E2E8F0",
+                        "accent": "#22C55E",
+                        "alert": "#B91C1C",
+                    },
+                    fontFamily: {
+                        "heading": ["Instrument Sans", "sans-serif"],
+                        "body": ["Geist", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "2px",
+                        "none": "0",
+                        "sm": "0.125rem",
+                        "md": "0.25rem",
+                        "lg": "0.5rem",
+                        "full": "9999px",
+                    },
+                    boxShadow: {
+                        'none': 'none',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background-light font-body text-text-main antialiased h-screen overflow-hidden flex selection:bg-primary selection:text-white">
+<!-- Shared Navigation Component -->
+<div class="relative flex h-screen w-full bg-surface group/design-root overflow-hidden border-r border-border-color shrink-0" style="width: 240px;">
+<div class="layout-container flex h-full grow flex-col w-full">
+<div class="flex flex-1 justify-center py-5 w-full">
+<div class="layout-content-container flex flex-col w-full flex-1">
+<div class="flex h-full flex-col justify-between p-4 w-full">
+<div class="flex flex-col gap-6 w-full">
+<div class="flex flex-col px-3">
+<h1 class="text-text-main text-lg font-heading font-semibold leading-tight tracking-tight">Intelligence CRM</h1>
+<p class="text-muted text-xs font-mono uppercase tracking-widest mt-1">Enterprise</p>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-background-light transition-colors group" href="#">
+<span class="material-symbols-outlined text-muted group-hover:text-text-main text-[20px]" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<p class="text-text-main text-sm font-medium leading-none mt-0.5">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-background-light transition-colors group" href="#">
+<span class="material-symbols-outlined text-muted group-hover:text-text-main text-[20px]" style="font-variation-settings: 'FILL' 0;">description</span>
+<p class="text-text-main text-sm font-medium leading-none mt-0.5">Dossier</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded hover:bg-background-light transition-colors group" href="#">
+<span class="material-symbols-outlined text-muted group-hover:text-text-main text-[20px]" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+<p class="text-text-main text-sm font-medium leading-none mt-0.5">Map</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded bg-background-light border-l-2 border-primary" href="#">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">list</span>
+<p class="text-text-main text-sm font-medium leading-none mt-0.5">Feed</p>
+</a>
+</div>
+</div>
+<div class="px-3 pt-4 border-t border-border-color">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary text-white flex items-center justify-center font-heading font-semibold text-sm">
+                                    AE
+                                </div>
+<div class="flex flex-col">
+<span class="text-sm font-medium leading-none text-text-main">Alex E.</span>
+<span class="text-xs text-muted mt-1">Enterprise Sales</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 h-full overflow-y-auto overflow-x-hidden relative no-scrollbar bg-background-light">
+<!-- Header -->
+<header class="sticky top-0 z-20 bg-background-light/95 backdrop-blur-sm border-b border-border-color px-8 py-6">
+<div class="max-w-[640px] mx-auto w-full flex justify-between items-end">
+<div class="flex flex-col gap-1">
+<h1 class="text-text-main font-heading text-2xl font-semibold tracking-tight">Intelligence Feed</h1>
+<p class="text-muted text-sm">Chronological stream of active account signals.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 border border-border-color rounded text-sm font-medium hover:bg-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+                        Filter
+                    </button>
+</div>
+</div>
+</header>
+<!-- Feed Container -->
+<div class="max-w-[640px] mx-auto w-full pb-24 relative">
+<!-- Date Divider Sticky -->
+<div class="sticky top-[89px] z-10 bg-background-light/95 backdrop-blur-sm py-3 border-b border-border-color">
+<h3 class="text-muted text-xs font-mono uppercase tracking-widest px-4">Today, Oct 24</h3>
+</div>
+<!-- Feed Items Group -->
+<div class="flex flex-col bg-surface border-x border-b border-border-color mb-8 rounded shadow-none">
+<!-- Event Card 1 -->
+<div class="group relative flex gap-4 px-5 py-5 border-b border-border-color hover:bg-background-light transition-colors last:border-b-0 cursor-default">
+<div class="shrink-0 pt-1">
+<div class="w-10 h-10 rounded border border-border-color bg-surface flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0 pr-24">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-xs text-muted font-mono shrink-0">10:30 AM</span>
+<span class="text-text-main font-medium truncate">Acme Corp</span>
+<span class="text-xs px-1.5 py-0.5 rounded bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] font-mono shrink-0 ml-auto">Score: 92</span>
+</div>
+<p class="text-text-main text-sm font-medium mb-1">C-Suite Change: New CFO Appointed</p>
+<p class="text-muted text-sm leading-relaxed truncate">Sarah Jenkins replaces John Doe. Potential trigger for tech stack consolidation in Q4.</p>
+</div>
+<!-- Hover Action -->
+<div class="absolute right-5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center justify-center px-4 h-8 bg-surface border border-border-color text-text-main text-xs font-heading font-medium rounded hover:bg-background-light shadow-sm">
+                            Draft Email
+                        </button>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="group relative flex gap-4 px-5 py-5 border-b border-border-color hover:bg-background-light transition-colors last:border-b-0 cursor-default">
+<div class="shrink-0 pt-1">
+<div class="w-10 h-10 rounded border border-border-color bg-surface flex items-center justify-center text-accent group-hover:border-accent/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0 pr-24">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-xs text-muted font-mono shrink-0">09:15 AM</span>
+<span class="text-text-main font-medium truncate">Globex Inc</span>
+<span class="text-xs px-1.5 py-0.5 rounded bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] font-mono shrink-0 ml-auto">Score: 88</span>
+</div>
+<p class="text-text-main text-sm font-medium mb-1">Funding Round: Series C Closed</p>
+<p class="text-muted text-sm leading-relaxed truncate">Closed $50M. Expansion into EMEA expected, massive hiring surge detected.</p>
+</div>
+<!-- Hover Action -->
+<div class="absolute right-5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center justify-center px-4 h-8 bg-surface border border-border-color text-text-main text-xs font-heading font-medium rounded hover:bg-background-light shadow-sm">
+                            View Dossier
+                        </button>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="group relative flex gap-4 px-5 py-5 border-b border-border-color hover:bg-background-light transition-colors last:border-b-0 cursor-default">
+<div class="shrink-0 pt-1">
+<div class="w-10 h-10 rounded border border-border-color bg-surface flex items-center justify-center text-alert group-hover:border-alert/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]">trending_down</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0 pr-24">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-xs text-muted font-mono shrink-0">08:05 AM</span>
+<span class="text-text-main font-medium truncate">Initech</span>
+<span class="text-xs px-1.5 py-0.5 rounded bg-surface text-muted border border-border-color font-mono shrink-0 ml-auto">Score: 45</span>
+</div>
+<p class="text-text-main text-sm font-medium mb-1">Risk Alert: Champion Departure</p>
+<p class="text-muted text-sm leading-relaxed truncate">VP of Engineering left company. Deal momentum stalled.</p>
+</div>
+<!-- Hover Action -->
+<div class="absolute right-5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center justify-center px-4 h-8 bg-surface border border-border-color text-text-main text-xs font-heading font-medium rounded hover:bg-background-light shadow-sm">
+                            Map Contacts
+                        </button>
+</div>
+</div>
+</div>
+<!-- Date Divider Sticky 2 -->
+<div class="sticky top-[89px] z-10 bg-background-light/95 backdrop-blur-sm py-3 border-b border-border-color">
+<h3 class="text-muted text-xs font-mono uppercase tracking-widest px-4">Yesterday, Oct 23</h3>
+</div>
+<!-- Feed Items Group 2 -->
+<div class="flex flex-col bg-surface border-x border-b border-border-color mb-8 rounded shadow-none">
+<!-- Event Card 4 -->
+<div class="group relative flex gap-4 px-5 py-5 border-b border-border-color hover:bg-background-light transition-colors last:border-b-0 cursor-default">
+<div class="shrink-0 pt-1">
+<div class="w-10 h-10 rounded border border-border-color bg-surface flex items-center justify-center text-primary group-hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col justify-center min-w-0 pr-24">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-xs text-muted font-mono shrink-0">04:20 PM</span>
+<span class="text-text-main font-medium truncate">Soylent Corp</span>
+<span class="text-xs px-1.5 py-0.5 rounded bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] font-mono shrink-0 ml-auto">Score: 82</span>
+</div>
+<p class="text-text-main text-sm font-medium mb-1">Tech Stack Addition: Competitor Dropped</p>
+<p class="text-muted text-sm leading-relaxed truncate">Removed LegacyCRM snippet from main domain. Active evaluation phase likely.</p>
+</div>
+<!-- Hover Action -->
+<div class="absolute right-5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="flex items-center justify-center px-4 h-8 bg-surface border border-border-color text-text-main text-xs font-heading font-medium rounded hover:bg-background-light shadow-sm">
+                            Draft Email
+                        </button>
+</div>
+</div>
+</div>
+<!-- Loading Indicator -->
+<div class="py-8 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-muted animate-spin text-[20px]">progress_activity</span>
+<span class="text-xs text-muted font-mono uppercase tracking-widest">Loading older signals...</span>
+</div>
+</div>
+</main>
+</body></html>
