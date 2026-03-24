@@ -3,6 +3,8 @@ import { Logo } from '../components/Logo'
 
 const navItems = [
   { path: '/crm/dashboard', label: 'Dashboard', icon: 'dashboard' },
+  { path: '/crm/dossier/acme', label: 'Dossier', icon: 'description' },
+  { path: '/crm/map/acme', label: 'Decision Map', icon: 'account_tree' },
   { path: '/crm/feed', label: 'Intelligence', icon: 'sensors' },
   { path: '/crm/accounts', label: 'Accounts', icon: 'analytics' },
   { path: '/crm/deals', label: 'Deals', icon: 'handshake' },
