@@ -32,11 +32,10 @@ export default function App() {
         <Route path="accounts" element={<AccountList />} />
         <Route path="deals" element={<DealProgression />} />
         <Route path="settings" element={<Settings />} />
-      </Route>
-
-      <Route path="/crm" element={<FocusedLayout />}>
-        <Route path="dossier/:accountId" element={<DealReadyDossier />} />
-        <Route path="map/:accountId" element={<DecisionMakerMap />} />
+        <Route element={<FocusedLayout />}>
+          <Route path="dossier/:accountId" element={<DealReadyDossier />} />
+          <Route path="map/:accountId" element={<DecisionMakerMap />} />
+        </Route>
       </Route>
     </Routes>
   )

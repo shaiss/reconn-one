@@ -107,20 +107,23 @@ export function Step3ICPDefinition() {
               </div>
               <div className="space-y-3">
                 {siteTypes.map((st) => (
-                  <label
+                  <button
                     key={st.id}
-                    className="flex items-center justify-between px-4 py-3 rounded-lg border border-border cursor-pointer hover:bg-surface-subtle transition-colors"
+                    type="button"
+                    onClick={() => setSiteType(st.id)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-lg border font-semibold text-sm transition-colors font-sans ${
+                      siteType === st.id
+                        ? 'border-brand bg-brand-light/10 text-brand'
+                        : 'border-border hover:bg-surface-subtle text-text-muted'
+                    }`}
                   >
-                    <span className="text-sm font-medium text-text-base font-sans">{st.label}</span>
-                    <input
-                      type="radio"
-                      name="site_type"
-                      value={st.id}
-                      checked={siteType === st.id}
-                      onChange={() => setSiteType(st.id)}
-                      className="text-brand focus:ring-brand"
-                    />
-                  </label>
+                    {st.label}
+                    {siteType === st.id && (
+                      <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        check_circle
+                      </span>
+                    )}
+                  </button>
                 ))}
               </div>
             </section>

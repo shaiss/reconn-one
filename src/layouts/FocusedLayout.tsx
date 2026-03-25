@@ -13,8 +13,8 @@ export function FocusedLayout() {
     .join(' ')
 
   return (
-    <div className="min-h-screen bg-surface-subtle flex flex-col">
-      <header className="h-12 bg-white border-b border-border flex items-center px-4 shrink-0 z-50">
+    <div className="flex flex-1 flex-col min-h-0 bg-surface-subtle">
+      <header className="h-12 bg-white border-b border-border flex items-center px-4 shrink-0 z-20">
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-text-muted hover:text-text-base transition-colors text-sm font-medium"
@@ -30,7 +30,7 @@ export function FocusedLayout() {
         </div>
       </header>
 
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden min-h-0">
         <Outlet />
       </div>
     </div>
