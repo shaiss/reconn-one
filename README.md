@@ -51,9 +51,25 @@ Public federal/state APIs (EPA, FHWA, HUD, NY Open Data, etc.) need no key. See 
 | `src/lib/api/` | HTTP clients for external data sources |
 | `src/lib/appDb.ts` | In-browser SQLite (sql.js) for demo persistence |
 
+## Deployment (Vercel)
+
+Production site: **[reconn-one.vercel.app](https://reconn-one.vercel.app)**
+
+The project is linked to **[github.com/shaiss/reconn-one](https://github.com/shaiss/reconn-one)**. Pushes to the default branch trigger new production deployments when the Git integration is enabled in the Vercel dashboard.
+
+**CLI (from this repo):**
+
+```bash
+vercel link --yes --project reconn-one --scope <your-team-slug>
+vercel deploy --prod --yes --scope <your-team-slug>
+vercel git connect --yes --scope <your-team-slug>   # if Git is not connected yet
+```
+
+Add **`VITE_NREL_API_KEY`** and **`VITE_ZAI_API_KEY`** under the project’s **Settings → Environment Variables** in [Vercel](https://vercel.com/) if you want those features in production (same names as in `.env.example`).
+
 ## Contributing
 
-1. Create a branch from `main`.
+1. Create a branch from `main` (or `master`, depending on your default branch).
 2. Run `npm run lint` and `npm run test:run` before opening a PR.
 3. Do not commit `.env` or secrets.
 
