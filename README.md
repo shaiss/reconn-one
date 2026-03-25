@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# ReconnOne
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ReconnOne is a **Vite + React + TypeScript** single-page app: a short **onboarding** flow plus **CRM-style** screens (dashboard, intelligence feed, accounts, deals, settings, and focused views such as deal-ready dossier and decision-maker map).
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Node.js** 20+ (LTS recommended)
+- **npm** 10+
 
-## React Compiler
+## Quick start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <repository-url>
+cd reconn-one
+cp .env.example .env
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the URL Vite prints (usually `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Copy `.env.example` to `.env` and set optional keys:
+
+| Variable | Required | Purpose |
+|----------|----------|---------|
+| `VITE_NREL_API_KEY` | No* | NREL Developer Network — AFDC stations, utility rates, PVWatts (*needed for those features in the browser) |
+| `VITE_ZAI_API_KEY` | No | Z.AI web search for unstructured signals (optional; exposed in the client bundle — use a backend proxy in production) |
+
+Public federal/state APIs (EPA, FHWA, HUD, NY Open Data, etc.) need no key. See `.env.example` for notes.
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server with HMR |
+| `npm run build` | Typecheck + production build to `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Vitest in watch mode |
+| `npm run test:run` | Vitest single run (CI-friendly) |
+
+## Project layout
+
+| Path | Role |
+|------|------|
+| `src/features/onboarding/` | Onboarding steps |
+| `src/features/crm/` | CRM screens (dashboard, feed, accounts, deals, dossier, map, settings) |
+| `src/layouts/` | `OnboardingLayout`, `CRMLayout`, `FocusedLayout` |
+| `src/lib/api/` | HTTP clients for external data sources |
+| `src/lib/appDb.ts` | In-browser SQLite (sql.js) for demo persistence |
+
+## Contributing
+
+1. Create a branch from `main`.
+2. Run `npm run lint` and `npm run test:run` before opening a PR.
+3. Do not commit `.env` or secrets.
+
+## License
+
+Private / all rights reserved unless otherwise specified by the repository owner.

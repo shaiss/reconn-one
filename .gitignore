@@ -7,11 +7,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies & build
 node_modules
 dist
 dist-ssr
 *.local
+
+# Secrets — copy `.env.example` to `.env` locally
 .env
+.env.*
+!.env.example
+
+# Internal / reference documentation (not tracked)
+docs/
+
+# Markdown notes and deliverables (root README kept for GitHub)
+*.md
+!README.md
 
 # Editor directories and files
 .vscode/*
