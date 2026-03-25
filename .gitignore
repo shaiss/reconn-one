@@ -13,6 +13,9 @@ dist
 dist-ssr
 *.local
 
+# Vercel CLI (local project link — do not commit)
+.vercel
+
 # Secrets — copy `.env.example` to `.env` locally
 .env
 .env.*
