@@ -1,3 +1,27 @@
+@layer base {
+  :root {
+    /* shadcn/ui CSS variables — mapped to our design token hex values */
+    --background: 210 40% 98%;        /* surface-subtle: #F8FAFC */
+    --foreground: 222 47% 11%;        /* text-base: #0F172A */
+    --card: 0 0% 100%;                /* surface: #FFFFFF */
+    --card-foreground: 222 47% 11%;   /* text-base: #0F172A */
+    --primary: 145 60% 20%;           /* brand: #14532D */
+    --primary-foreground: 0 0% 100%;  /* white */
+    --secondary: 210 40% 96%;         /* surface-muted: #F1F5F9 */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;             /* surface-muted: #F1F5F9 */
+    --muted-foreground: 215 16% 47%;  /* text-muted: #64748B */
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 72% 51%;         /* danger: #B91C1C */
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;            /* border: #E2E8F0 */
+    --input: 214 32% 91%;
+    --ring: 145 60% 20%;              /* brand: #14532D */
+    --radius: 2px;                    /* matches our rounded DEFAULT */
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
