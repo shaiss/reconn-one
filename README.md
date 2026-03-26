@@ -1,10 +1,25 @@
 # ReconnOne
 
-ReconnOne is a **Vite + React + TypeScript** single-page app: a short **onboarding** flow plus **CRM-style** screens (dashboard, intelligence feed, accounts, deals, settings, and focused views such as deal-ready dossier and decision-maker map).
+A **Vite + React + TypeScript** starter for a **multi-step sales funnel** and the **downstream workspace** sellers use after qualification: one app, two layout systems, and a small set of reusable UI primitives you can re-skin for any industry.
+
+The demo copy and sample data are placeholders. **Swap routes, fields, and API modules** for your vertical— the structure is the reusable part.
+
+## What you get (framework, not content)
+
+| Layer | Purpose |
+|-------|---------|
+| **Onboarding funnel** | Linear `step-1` → `step-4` flow under a dedicated layout—ideal for ICP capture, qualification questions, and handoff into the “logged-in” experience. |
+| **CRM-style workspace** | Shared shell with navigation: overview, signal stream, account list, pipeline, settings, plus **focused** routes (detail views with minimal chrome). |
+| **Three layouts** | `OnboardingLayout` (wizard), `CRMLayout` (persistent app chrome), `FocusedLayout` (single-task / back-nav only). |
+| **Routing** | `react-router-dom` with nested routes; easy to rename paths or add stages without changing layout code. |
+| **Design system** | Tailwind CSS with semantic tokens (brand, surface, text, scores). Swap tokens to rebrand for another industry in one pass. |
+| **UI primitives** | Radix-based **tabs**, **accordion**, **switch** under `src/components/ui/`; app-level building blocks such as **PageHeader**, **SectionPanel**, **StatCard**, **ScoreBadge**, **SignalBadge**, **Badge**, **Logo**. |
+| **Persistence pattern** | In-browser **SQLite (sql.js)** illustrates local-first or demo persistence—replace with your API or auth-backed store when you go beyond prototypes. |
+| **Data integrations (optional)** | `src/lib/api/` holds typed HTTP clients. Use them as a pattern for your own endpoints; keys and providers live in `.env` / `.env.example` (see there—nothing industry-specific is required to run the shell). |
 
 ## Requirements
 
-- **Node.js** 20+ (LTS recommended)
+- **Node.js** 20+ (LTS recommended)  
 - **npm** 10+
 
 ## Quick start
@@ -12,52 +27,46 @@ ReconnOne is a **Vite + React + TypeScript** single-page app: a short **onboardi
 ```bash
 git clone <repository-url>
 cd reconn-one
-cp .env.example .env
+cp .env.example .env   # optional: only if you enable external APIs
 npm install
 npm run dev
 ```
 
 Open the URL Vite prints (usually `http://localhost:5173`).
 
-## Environment variables
-
-Copy `.env.example` to `.env` and set optional keys:
-
-| Variable | Required | Purpose |
-|----------|----------|---------|
-| `VITE_NREL_API_KEY` | No* | NREL Developer Network — AFDC stations, utility rates, PVWatts (*needed for those features in the browser) |
-| `VITE_ZAI_API_KEY` | No | Z.AI web search for unstructured signals (optional; exposed in the client bundle — use a backend proxy in production) |
-
-Public federal/state APIs (EPA, FHWA, HUD, NY Open Data, etc.) need no key. See `.env.example` for notes.
-
 ## Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start dev server with HMR |
-| `npm run build` | Typecheck + production build to `dist/` |
+| `npm run dev` | Dev server with HMR |
+| `npm run build` | Typecheck + production build → `dist/` |
 | `npm run preview` | Serve the production build locally |
-| `npm run lint` | Run ESLint |
-| `npm run test` | Vitest in watch mode |
-| `npm run test:run` | Vitest single run (CI-friendly) |
+| `npm run lint` | ESLint |
+| `npm run test` | Vitest (watch) |
+| `npm run test:run` | Vitest once (CI-friendly) |
 
 ## Project layout
 
 | Path | Role |
 |------|------|
-| `src/features/onboarding/` | Onboarding steps |
-| `src/features/crm/` | CRM screens (dashboard, feed, accounts, deals, dossier, map, settings) |
-| `src/layouts/` | `OnboardingLayout`, `CRMLayout`, `FocusedLayout` |
-| `src/lib/api/` | HTTP clients for external data sources |
-| `src/lib/appDb.ts` | In-browser SQLite (sql.js) for demo persistence |
+| `src/App.tsx` | Route table—funnel steps vs workspace routes |
+| `src/layouts/` | Onboarding, CRM, and focused shells |
+| `src/features/onboarding/` | Step screens (replace content; keep step flow) |
+| `src/features/crm/` | Workspace screens (lists, feeds, detail views) |
+| `src/components/` | Shared presentation components + `ui/` primitives |
+| `src/lib/` | App DB helper, optional API clients, shared types |
+
+## Customizing for another industry
+
+1. **Rename routes** in `App.tsx` and adjust layouts if you add/remove funnel stages.  
+2. **Replace copy and mock data** inside `src/features/**`—components are mostly presentational.  
+3. **Retheme** via Tailwind theme tokens / `index.css` (keep the semantic names for less churn).  
+4. **Wire your stack**: swap `src/lib/api/` for your CRM, enrichment, or scoring services; use env vars only for secrets (prefer a backend proxy in production).
 
 ## Deployment (Vercel)
 
-Production site: **[reconn-one.vercel.app](https://reconn-one.vercel.app)**
-
-The project is linked to **[github.com/shaiss/reconn-one](https://github.com/shaiss/reconn-one)**. Pushes to the default branch trigger new production deployments when the Git integration is enabled in the Vercel dashboard.
-
-**CLI (from this repo):**
+Production: **[reconn-one.vercel.app](https://reconn-one.vercel.app)**  
+Repo: **[github.com/shaiss/reconn-one](https://github.com/shaiss/reconn-one)**
 
 ```bash
 vercel link --yes --project reconn-one --scope <your-team-slug>
@@ -65,12 +74,12 @@ vercel deploy --prod --yes --scope <your-team-slug>
 vercel git connect --yes --scope <your-team-slug>   # if Git is not connected yet
 ```
 
-Add **`VITE_NREL_API_KEY`** and **`VITE_ZAI_API_KEY`** under the project’s **Settings → Environment Variables** in [Vercel](https://vercel.com/) if you want those features in production (same names as in `.env.example`).
+Set any **`VITE_*`** variables your integrations need under **Vercel → Project → Settings → Environment Variables** (mirror `.env.example`).
 
 ## Contributing
 
-1. Create a branch from `main` (or `master`, depending on your default branch).
-2. Run `npm run lint` and `npm run test:run` before opening a PR.
+1. Branch from your default branch (`main` or `master`).  
+2. Run `npm run lint` and `npm run test:run` before opening a PR.  
 3. Do not commit `.env` or secrets.
 
 ## License
