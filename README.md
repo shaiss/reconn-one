@@ -34,6 +34,8 @@ npm run dev
 
 Open the URL Vite prints (usually `http://localhost:5173`).
 
+**After `git pull`:** run `npm install` again whenever `package.json` / the lockfile change (for example a merged PR that adds a dependency). Otherwise Vite may fail to resolve new imports.
+
 ## Scripts
 
 | Command | Description |
